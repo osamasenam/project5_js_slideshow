@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>
+        Slide show
+        </title>
+        
+        <script>           
+            var pictures = ["j1.jpg", "j2.jpg", "j3.jpg"];
+            function load() {
+               // document.getElementById("image_canvas").getElementsByTagName("img")[0].src = pictures[0];
+                changepic(0);
+            }
+            
+            function changepic (n) {
+                document.getElementById("image_canvas").getElementsByTagName("img")[0].src = pictures[n % pictures.length];
+                setTimeout(function(){changepic(n+1);}, 5000);
+            }
+        
+            window.addEventListener("click", function(){console.log("clicked on the page...");});
+        </script>
+    </head>
+
+    
+    <body onload="load();">
+         
+        <div id="image_canvas" style="width: 750px;height: 497px;margin: 0 auto">
+            <img style="height: 100%;width: 100%">
+        </div>
+    
+    </body>
+</html>
